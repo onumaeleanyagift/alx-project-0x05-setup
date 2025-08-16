@@ -8,9 +8,10 @@ const Home: React.FC = () => {
   const [generatedImages, setGeneratedImages] = useState<ImageProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleGenerateImage = async () => {
-    console.log("Generating Images");
-  };
+ const handleGenerateImage = async () => {
+   console.log("Generating Image");
+   console.log(process.env.NEXT_PUBLIC_GPT_API_KEY);
+ };
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
