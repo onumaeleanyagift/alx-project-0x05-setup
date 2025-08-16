@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const gptApiKey = process.env.NEXT_PUBLIC_GPT_API_KEY;
-  const gptUrl = "https://chatgpt-42.p.rapidapi.com/texttoimage";
+  const gptUrl = "https://chatgpt-42.p.rapidapi.com/texttoimage3";
 
   if (!gptApiKey || !gptUrl) {
     return response
@@ -28,6 +28,9 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
         "Content-Type": "application/json",
       },
     });
+    
+      const result = await res.text();
+      console.log(result);
 
     if (!res.ok) {
       throw new Error("Failed to fetch from DALLE");
